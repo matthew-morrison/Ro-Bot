@@ -1,4 +1,3 @@
-import datetime
 import pytz
 import random
 from random import shuffle
@@ -26,17 +25,11 @@ class Rocode(commands.Cog):
         if len(self.nextcode) == 0:
             print("Initializing lastcode to zero")
             self.nextcode = 0
-        # self.lastcodedatetime = self.lastcodefile.readline()
         self.bot = bot
 
         scheduler = AsyncIOScheduler()
-        # scheduler.add_job(self.perform_job, trigger='interval', seconds=2, misfire_grace_time=100, coalesce=True) # triggers every 2 seconds after being scheduled.
-        # https://apscheduler.readthedocs.io/en/stable/modules/triggers/cron.html#module-apscheduler.triggers.cron
-        #scheduler.add_job(self.perform_job, trigger='cron', minute='0', hour='0', day='*', week='*', month='*',
-        #                  year='*', misfire_grace_time=100, coalesce=False, timezone=self.tz)
         scheduler.add_job(self.perform_job, trigger='cron', minute=bot.rocode_minute, hour=bot.rocode_hour, day='*', week='*', month='*',
                           year='*', misfire_grace_time=100, coalesce=False, timezone=self.tz)
-        # scheduler.add_job(self.perform_job, trigger='cron', minute='*', hour='*', day='*', week='*', month='*', year='*', misfire_grace_time=100, coalesce=False, timezone=self.tz)
         scheduler.start()
 
     async def perform_job(self):
