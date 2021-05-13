@@ -1,3 +1,5 @@
+import datetime
+
 import pytz
 import random
 from random import shuffle
@@ -17,11 +19,12 @@ class Rocode(commands.Cog):
         random.seed(1)  # seed random so we shuffle to the same state on each startup
         shuffle(self.codes)
         self.rocodeChannel = {
-            590716910560215043: 590716993146191873,  # testing server / channel
-            581327648350011396: 581327648350011400  # production server / channel
+            "test": 590716993146191873,  # testing server / channel
+            "prod": 837825838359511060  # production server / channel
         }
         self.nextcodefile = open("nextcode.txt", "w+")
         self.nextcode = self.nextcodefile.readline()
+        self.nextcodefile.close()
         if len(self.nextcode) == 0:
             print("Initializing lastcode to zero")
             self.nextcode = 0
@@ -33,11 +36,10 @@ class Rocode(commands.Cog):
         scheduler.start()
 
     async def perform_job(self):
-        print("Performing Rocode Job")
+        print("Performing Rocode Job at " + datetime.datetime.now())
         curr_code = self.codes[self.nextcode]
         self.nextcode += 1
-        self.nextcodefile.seek(0)
-        self.nextcodefile.write(str(self.nextcode))
+        self.updatenextcodefile()
 
         if len(self.codes) <= self.nextcode:
             self.nextcode = 0
@@ -53,14 +55,19 @@ class Rocode(commands.Cog):
             except discord.Forbidden:
                 print("Could not send ro'code, Forbidden error")
 
-
-    @commands.command(pass_context = True)
+    # Users can manually retrieve the current rocode using this command in discord
+    @commands.command(pass_context=True)
     async def rocode(self, ctx):
         last_sent_code_idx = self.nextcode - 1
         if last_sent_code_idx < 0:
             last_sent_code_idx = len(self.codes)-1
         last_sent_code = self.codes[last_sent_code_idx]
         await ctx.channel.send("Today's Rover Code is:\n\n" + last_sent_code)
+
+    def updatenextcodefile(self):
+        self.nextcodefile = open("nextcode.txt", "w+")
+        self.nextcodefile.write(str(self.nextcode))
+        self.nextcodefile.close()
 
 
 def setup(bot):
