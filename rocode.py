@@ -22,10 +22,10 @@ class Rocode(commands.Cog):
             "test": 590716993146191873,  # testing server / channel
             "prod": 837825838359511060  # production server / channel
         }
-        self.nextcodefile = open("nextcode.txt", "w+")
-        self.nextcode = self.nextcodefile.readline()
+        self.nextcodefile = open("nextcode.txt", "r+")
+        self.nextcode = int(self.nextcodefile.readline())
         self.nextcodefile.close()
-        if len(self.nextcode) == 0:
+        if self.nextcode is None:
             print("Initializing lastcode to zero")
             self.nextcode = 0
         self.bot = bot
