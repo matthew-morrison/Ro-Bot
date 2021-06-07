@@ -1,0 +1,15 @@
+APScheduler
+aiohttp
+async-timeout
+attrs
+chardet
+discord.py
+idna
+multidict
+pip
+pytz
+setuptools
+six
+typing-extensions
+tzlocal
+yarl
