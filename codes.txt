@@ -30,7 +30,7 @@
 #30 Your twenties are for learning as much as possible. Leave making money for your thirties. #RoCode
 #31 If you make zero mistakes, you aren't trying enough. #RoCode
 #32 Have a plan going in on what you want as a result, and you'll get double the results #RoCode
-#33 "A scout smiles and whistles under all circumstances" - BP #RoCode
+#33 If you start with transparency you won't have nearly as many problems in the end. #RoCode
 #34 Storming, Forming, Norming, Performing #RoCode
 #35 When stuck, "What's the next Action?" is an amazing mantra #RoCode
 #36 Being prepared means constantly investing in yourself and your fellow compatriots #RoCode
@@ -47,7 +47,7 @@
 #47 Choose to see that you deserve the best.For you already have what's necessary to make it happen. #RoCode
 #48 A successful plan starts with the destination. You can't know what direction to go unless you know where you want to end up. #RoCode
 #49 Everyday is an opportunity to reach that goal. #RoCode
-#50 Happiness is a choice, not a result. Nothing will make you happy until you choose to be happy. #RoCode
+#50 Happiness is not a singular destination that one can achieve. #RoCode.
 #51 Instead of thinking about why they can't, Ro's get busy working on how they can #RoCode
 #52 The Ro' respects the Old Wolves, The Ro' respect themselves. #RoCode
 #53 Service means building towards a higher ideal. #RoCode
@@ -69,3 +69,4 @@
 #69 Have fun #RoCode
 #70 A Ro is a Ro no matter where you go #RoCode
 #71 There are 2 ways to do something: the right way, and again. #RoCode
+#72 Be prepared for things to break #RoCode
